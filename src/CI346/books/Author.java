@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * This class represents an Author.
  * Created by jb259 on 21/10/16.
  */
 public class Author implements Serializable {
@@ -14,10 +13,10 @@ public class Author implements Serializable {
     private Date dateOfBirth;
 
     public Author(String firstName, String middleName, String surname, Date dob) {
-        this.setFirstName(firstName);
-        this.setMiddleName(middleName);
-        this.setSurname(surname);
-        this.setDateOfBirth(dob);
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.surname = surname;
+        this.dateOfBirth = dob;
     }
 
     public String getName() {
@@ -30,27 +29,13 @@ public class Author implements Serializable {
 
     public String getFirstName() { return firstName;}
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getSurname() {
         return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
     public String getMiddleName() { return middleName;}
-
-    public void setMiddleName(String middleName) {this.middleName = middleName;}
 }

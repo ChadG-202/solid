@@ -1,11 +1,12 @@
 package CI346.week4;
 
-import CI346.books.Author;
-import CI346.books.Book;
+import CI346.books.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,10 +15,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * CI346
- * Entry point for the Week 4 Lab Session.
- */
 public class Main {
 
     public static void main(String[] args) {
@@ -28,18 +25,13 @@ public class Main {
             Author a = new Author("Thomas", "Stearns", "Eliot", dob);
             Book b = new Book("Prufrock and Other Observations", a, contents);
             b.save();
-            Optional<Book> anotherBook = Book.read(b.getTitle()+".ser");
+            Path path = FileSystems.getDefault().getPath(b.getTitle()+".ser");
+            Optional<Book> anotherBook = BookPersister.read(path);
             if(anotherBook.isPresent()){
                 b = anotherBook.get();
-                b.printInfo();
-                for(int i=0;i<b.getLength();i++) {
-                    System.out.println("------------------------------------------------- ");
-                    b.printHeader();
-                    System.out.println("------------------------------------------------- \n");
-
-                    b.printPage();
-                    b.turnPage();
-                }
+                //BookFormatter bf = new BookContentsFormatter(b);
+                BookFormatter bf = new BookInfoFormatter(b);
+                System.out.println(bf.format());
             }
 
         } catch (IOException e) {
