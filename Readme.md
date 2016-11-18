@@ -1,4 +1,4 @@
-# Dependence Injection
+# SOLID Priciples
 
 This repository contains the lab exercise for Week 4 in CI346, and is
 about the *Dependency Injection* design pattern. Although the program
@@ -148,6 +148,11 @@ change the line in the `main` method that reads in the
 Note that the `Book` object is not entirely separate from
 concerns of saving or retrieving objects, because it has to implement
 the `save` method from the `BookPersister` interface. 
+  
+Note that the `Book` object is not entirely separate from concerns of saving or retrieving 
+objects, because it has to implement the `save` method from the
+`BookPersister` interface. We could get round this by using a design pattern such as
+*Dependency Injection*, which we'll be looking at in a future lab session.
   
 A final problem with the design of this application is the fact that
 the `Author` class contains code relating to formatting and
