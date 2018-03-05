@@ -145,10 +145,6 @@ change the line in the `main` method that reads in the
 
     Optional<Book> anotherBook = BookPersister.read(path);
   
-Note that the `Book` object is not entirely separate from
-concerns of saving or retrieving objects, because it has to implement
-the `save` method from the `BookPersister` interface. 
-  
 Note that the `Book` object is not entirely separate from concerns of saving or retrieving 
 objects, because it has to implement the `save` method from the
 `BookPersister` interface. We could get round this by using a design pattern such as
