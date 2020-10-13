@@ -1,7 +1,7 @@
-package CI346.week4;
+package CI646.week4;
 
-import CI346.books.Author;
-import CI346.books.Book;
+import CI646.books.Author;
+import CI646.books.Book;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

@@ -1,4 +1,4 @@
-package CI346.books;
+package CI646.books;
 
 import java.io.Serializable;
 import java.util.Date;
