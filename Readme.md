@@ -1,6 +1,6 @@
-# Dependence Injection
+# SOLID Principles
 
-This repository contains the lab exercise for Week 4 in CI346, and is
+This repository contains a lab exercise for CI646, and is
 about the *Dependency Injection* design pattern. Although the program
 currently works, it violates some or all of the SOLID principles, and
 is unfortunately brittle -- making a small change, such as printing
@@ -12,7 +12,7 @@ SOLID principles and is easier to maintain and enhance.
 The application reads in a text file containing a book, prints out the
 contents of the book in various ways, and can save and retrieve books
 as Java objects. The entry point is the `main` method in the class
-`CI346.week4.Main`. Run the `main` method and study the code of all
+`CI646.week4.Main`. Run the `main` method and study the code of all
 classes until you understand the application.
   
 The `Book` class contains methods for printing the details of books,
@@ -25,7 +25,7 @@ printable/formattable objects should implement. However, since all
 formattable book objects will share some behavior, we will use
 inheritance instead. So, you are going to create a series of classes
 that specialise in formatting `Book` objects. In the package
-`CI346.books`, create a class called `BookFormatter`
+`CI646.books`, create a class called `BookFormatter`
 with the following contents (you can download this file from
 studentcentral):
 
@@ -124,7 +124,7 @@ You are going to move some of this persistence-related code into an
 interface in order to support the *Interface Segregation
 Principle*.
 
-In the package `CI346.books`, create an interface called
+In the package `CI646.books`, create an interface called
 `BookPersister`. This interface should extend the
 `Serializable` interface. Move the `read` method from
 the `Book` class to the new interface (note this is only
@@ -145,9 +145,10 @@ change the line in the `main` method that reads in the
 
     Optional<Book> anotherBook = BookPersister.read(path);
   
-Note that the `Book` object is not entirely separate from
-concerns of saving or retrieving objects, because it has to implement
-the `save` method from the `BookPersister` interface. 
+Note that the `Book` object is not entirely separate from concerns of saving or retrieving 
+objects, because it has to implement the `save` method from the
+`BookPersister` interface. We could get round this by using a design pattern such as
+*Dependency Injection*, which we'll be looking at in a future lab session.
   
 A final problem with the design of this application is the fact that
 the `Author` class contains code relating to formatting and
