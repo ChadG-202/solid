@@ -8,7 +8,7 @@ as Java objects. The entry point is the `main` method in the class
 classes until you understand the application.
 
 Although the program
-currently works, it violates some or all of the SOLID principles, and
+currently works, it violates some or all of the [SOLID principles](https://en.wikipedia.org/wiki/SOLID), and
 is unfortunately brittle -- making a small change, such as printing
 the information of a book in a different style, would require many
 changes. Your task is to refactor the code so that it follows the
