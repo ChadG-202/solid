@@ -1,19 +1,18 @@
 # SOLID Principles
 
-This repository contains a lab exercise for CI646, and is
-about the *Dependency Injection* design pattern. Although the program
-currently works, it violates some or all of the SOLID principles, and
-is unfortunately brittle -- making a small change, such as printing
-the information of a book in a different style, would require many
-changes. Your task is to refactor the code so that it follows the
-SOLID principles and is easier to maintain and enhance.
-
-  
-The application reads in a text file containing a book, prints out the
+This repository contains a lab exercise for the module CI646, and is
+about the *Dependency Injection* design pattern. The application reads in a text file containing a book, prints out the
 contents of the book in various ways, and can save and retrieve books
 as Java objects. The entry point is the `main` method in the class
 `CI646.week4.Main`. Run the `main` method and study the code of all
 classes until you understand the application.
+
+Although the program
+currently works, it violates some or all of the [SOLID principles](https://en.wikipedia.org/wiki/SOLID), and
+is unfortunately brittle -- making a small change, such as printing
+the information of a book in a different style, would require many
+changes. Your task is to refactor the code so that it follows the
+SOLID principles and is easier to maintain and enhance.
   
 The `Book` class contains methods for printing the details of books,
 such as `printContents`. Which SOLID principles does this
