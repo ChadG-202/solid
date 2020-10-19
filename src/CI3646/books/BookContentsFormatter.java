@@ -1,4 +1,4 @@
-package CI346.books;
+package CI3646.books;
 
 /**
  * Created by jb259 on 21/10/16.
