@@ -1,6 +1,6 @@
 # SOLID Principles
 
-This repository contains the lab exercise for Week 4 in CI346, and is
+This repository contains a lab exercise for the module CI346, and is
 about the *Dependency Injection* design pattern. Although the program
 currently works, it violates some or all of the SOLID principles, and
 is unfortunately brittle -- making a small change, such as printing
