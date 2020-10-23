@@ -129,7 +129,7 @@ In the package `CI646.books`, create an interface called
 `Serializable` interface. Move the `read` method from
 the `Book` class to the new interface (note this is only
 possible because `read` is a `static` method). Declare
-the `read` method in the interface but don't define it. That
+the `save` method in the interface but don't define it. That
 is, the interface should contain this line: 
 
     public void save(); 
