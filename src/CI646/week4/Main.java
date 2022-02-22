@@ -4,10 +4,14 @@ import CI646.books.Author;
 import CI646.books.Book;
 import CI646.books.BookContentsFormatter;
 import CI646.books.BookFormatter;
+import CI646.books.BookInfoFormatter;
+import CI646.books.BookPersister;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -30,10 +34,11 @@ public class Main {
             Author a = new Author("Thomas", "Stearns", "Eliot", dob);
             Book b = new Book("Prufrock and Other Observations", a, contents);
             b.save();
-            Optional<Book> anotherBook = Book.read(b.getTitle()+".ser");
+            Path path = FileSystems.getDefault().getPath(b.getTitle()+".ser");
+            Optional<Book> anotherBook = BookPersister.read(path);
             if(anotherBook.isPresent()){
                 b = anotherBook.get();
-                BookFormatter bf = new BookContentsFormatter(b);
+                BookFormatter bf = new BookInfoFormatter(b);
                 System.out.println(bf.format());
             }
 

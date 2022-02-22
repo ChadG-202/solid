@@ -9,7 +9,7 @@ import java.util.Optional;
  * Created by jb259 on 21/10/16.
  *
  */
-public class Book implements Serializable {
+public class Book implements BookPersister {
 
     private String title;
     private Author author;
@@ -20,23 +20,6 @@ public class Book implements Serializable {
         this.title = title;
         this.author = author;
         this.contents = contents;
-    }
-
-    public void printPage() {
-        System.out.println(getCurrentPage());
-    }
-
-    public void printHeader() {
-        System.out.println(getAuthor().getName()+", "+getTitle());
-    }
-
-    public void printInfo() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getTitle()+" ["+contents.length+" pages]");
-        sb.append("\n");
-        sb.append(getAuthor().getName());
-        sb.append("\n");
-        System.out.println(sb.toString());
     }
 
     public int getLength() {
@@ -51,19 +34,6 @@ public class Book implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public static Optional<Book> read(String path) {
-        try {
-            FileInputStream fin = new FileInputStream(path);
-            ObjectInputStream ois = new ObjectInputStream(fin);
-            return Optional.of((Book) ois.readObject());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return Optional.empty();
     }
 
     public Author getAuthor() {
